@@ -1,0 +1,13 @@
+[[contact]]
+name = "Email"
+address = """<a href=\"mailto:contact@thyraen.ai\">contact@thyraen.ai</a>"""
+icon = "fa-envelope"
+
+[[contact]]
+name = "HQ"
+address = "Remote-first · United States"
+icon = "fa-map-marked-alt"
+
+[[social]]
+icon = "fa-github"
+url = "https://github.com/Thyraen-Robotics"

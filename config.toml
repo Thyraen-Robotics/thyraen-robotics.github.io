@@ -1,0 +1,16 @@
+base_url = "https://thyraen-robotics.github.io/"
+title = "Thyraen Robotics"
+description = "Mission-ready autonomous systems and robotics platforms."
+author = "Thyraen Robotics"
+
+compile_sass = false
+build_search_index = false
+
+theme = "zola-grayscale"
+
+[markdown]
+highlight_code = true
+highlight_theme = "gray-matter-dark"
+
+[extra]
+debug = false
