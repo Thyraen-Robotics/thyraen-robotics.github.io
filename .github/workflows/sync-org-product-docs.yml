@@ -36,16 +36,25 @@ jobs:
           dst_root = Path('content/products')
 
           products = [
-              ('echelon', 'Echelon'),
-              ('breacher', 'Breacher'),
+              ('echelon', 'Echelon', 'Mission autonomy and command for objective-driven execution'),
+              ('breacher', 'Breacher', 'Autonomous environment shaping for mission enablement'),
           ]
 
-          for slug, title in products:
+          for slug, title, hero_subtitle in products:
               src = src_root / f'{slug}.md'
               if not src.exists():
                   raise SystemExit(f'Missing source file: {src}')
               body = src.read_text(encoding='utf-8').rstrip() + '\n'
-              front_matter = f"+++\ntitle = \"{title}\"\nslug = \"{slug}\"\n+++\n\n"
+              front_matter = (
+                  "+++\n"
+                  f"title = \"{title}\"\n"
+                  f"slug = \"{slug}\"\n"
+                  "\n"
+                  "[extra]\n"
+                  f"hero_title = \"{title}\"\n"
+                  f"hero_subtitle = \"{hero_subtitle}\"\n"
+                  "+++\n\n"
+              )
               notice = "<!-- synced from Thyraen-Robotics/.github; do not edit here -->\n\n"
               (dst_root / f'{slug}.md').write_text(front_matter + notice + body, encoding='utf-8')
           PY

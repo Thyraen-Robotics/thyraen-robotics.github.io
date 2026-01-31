@@ -1,6 +1,10 @@
 +++
 title = "Breacher"
 slug = "breacher"
+
+[extra]
+hero_title = "Breacher"
+hero_subtitle = "Autonomous environment shaping for mission enablement"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

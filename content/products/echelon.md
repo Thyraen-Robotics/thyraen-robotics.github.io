@@ -1,6 +1,10 @@
 +++
 title = "Echelon"
 slug = "echelon"
+
+[extra]
+hero_title = "Echelon"
+hero_subtitle = "Mission autonomy and command for objective-driven execution"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
