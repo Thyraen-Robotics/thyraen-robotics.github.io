@@ -1,6 +1,6 @@
-.masthead-image {
+.masthead-hero {
     position: relative;
-    min-height: 60vh;
+    min-height: 85vh;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -9,54 +9,98 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 6rem 1.5rem;
+    padding: 7rem 1.5rem 6rem;
+    color: #f8f9fa;
+    overflow: hidden;
 }
 
-.masthead-image__overlay {
+.masthead-hero::after {
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(14, 16, 20, 0.8) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.masthead-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 8, 12, 0.75), rgba(5, 8, 12, 0.55));
     z-index: 0;
 }
 
-.masthead-image__content {
+.masthead-hero__content {
     position: relative;
-    z-index: 1;
-    max-width: 960px;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.masthead-image__title {
-    color: #f8f9fa;
+.masthead-hero__intro {
+    text-align: center;
+}
+
+.masthead-hero__title {
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
 
-.masthead-image__subtitle {
-    color: rgba(248, 249, 250, 0.8);
+.masthead-hero__subtitle {
+    color: rgba(248, 249, 250, 0.82);
     font-size: 1.1rem;
     margin-bottom: 0;
 }
 
+.masthead-hero__philosophy {
+    max-width: 75ch;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.masthead-hero__philosophy-title {
+    color: #f8f9fa;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.masthead-hero__philosophy-text {
+    color: rgba(248, 249, 250, 0.78);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
 @media (max-width: 992px) {
-    .masthead-image {
-        min-height: 45vh;
-        padding: 5rem 1.25rem;
+    .masthead-hero {
+        min-height: 90vh;
+        padding: 6rem 1.25rem 5rem;
+    }
+
+    .masthead-hero__content {
+        gap: 2.5rem;
     }
 }
 
 @media (max-width: 576px) {
-    .masthead-image {
-        min-height: 36vh;
-        padding: 4rem 1rem;
+    .masthead-hero {
+        min-height: 100vh;
+        padding: 5rem 1rem 4rem;
     }
 
-    .masthead-image__title {
-        font-size: 1.75rem;
+    .masthead-hero__title {
+        font-size: 1.8rem;
     }
 
-    .masthead-image__subtitle {
+    .masthead-hero__subtitle {
         font-size: 1rem;
+    }
+
+    .masthead-hero__philosophy-title {
+        font-size: 1.25rem;
     }
 }

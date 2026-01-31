@@ -1,4 +1,4 @@
 +++
 title = "Home"
-extra = { masthead = "/images/mastheads/thyraen-org.png" }
+extra = { masthead = "/images/mastheads/thyraen-coordination-fabric.png" }
 +++
