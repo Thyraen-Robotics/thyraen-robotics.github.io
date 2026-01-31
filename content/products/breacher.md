@@ -7,15 +7,7 @@ slug = "breacher"
 
 # Breacher
 
-**Breacher** is an autonomous capability within the Thyraen Robotics ecosystem focused on
-**Operational Preparation of the Environment (OPE)** in denied or contested conditions.
-
-Breacher addresses situations where environmental denial—such as electronic warfare,
-sensing coverage, or control networks—constrains or prevents mission execution.
-
-It is not a vehicle or a single platform.
-Breacher is a **capability package** that may be instantiated across heterogeneous agents
-and coordinated through Echelon.
+**Breacher** is an autonomous capability focused on operational preparation of the environment. It applies sensing, decision-making, and effects to reduce environmental denial and enable follow-on mission execution under Echelon coordination.
 
 ---
 

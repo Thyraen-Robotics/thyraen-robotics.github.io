@@ -7,16 +7,7 @@ slug = "echelon"
 
 # Echelon
 
-**Echelon** is the mission autonomy and mission command-and-control (C2) capability
-within the Thyraen Robotics ecosystem.
-
-Echelon provides the coordination, tasking, and operational coherence required for
-autonomous agents to execute missions under human intent, across both centralized
-and decentralized configurations.
-
-It is not a platform or vehicle system.
-Echelon is a **mission-level autonomy capability** that may operate onboard agents,
-across distributed nodes, or as a coordinating mission service.
+**Echelon** is the mission autonomy and mission command-and-control (C2) capability within the Thyraen Robotics ecosystem. It translates intent into coordinated tasks, maintains shared mission state, and enables autonomous agents to operate coherently under human authority.
 
 ---
 
