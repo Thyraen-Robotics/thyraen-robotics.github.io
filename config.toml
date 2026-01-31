@@ -9,8 +9,9 @@ build_search_index = false
 theme = "zola-grayscale"
 
 [markdown]
-highlight_code = true
-highlight_theme = "gray-matter-dark"
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
 
 [extra]
 debug = false

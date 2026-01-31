@@ -4,8 +4,8 @@
 
 {% block masthead_title %}Thyraen Robotics{% endblock masthead_title %}
 {% block masthead_description %}Autonomous platforms engineered for contested environments.{% endblock masthead_description %}
-{% block masthead_button_url %}#projects{% endblock masthead_button_url %}
-{% block masthead_button_label %}Explore Projects{% endblock masthead_button_label %}
+{% block masthead_button_url %}#products{% endblock masthead_button_url %}
+{% block masthead_button_label %}Explore Products{% endblock masthead_button_label %}
 
 {% block about_title %}Autonomy at mission scale{% endblock about_title %}
 {% block about_description %}
@@ -15,23 +15,55 @@ operate at the edge, and deliver trustworthy mission outcomes.
 {% endblock about_description %}
 {% block about_image %}{% endblock about_image %}
 
-{% block feature_project_title %}Echelon{% endblock feature_project_title %}
-{% block feature_project_description %}
-A mission-centric platform spanning flight control, mission systems, mesh radio
-firmware, core services, and operator HMI. Read the full documentation at
-<a href="https://thyraen-robotics.github.io/echelon/">thyraen-robotics.github.io/echelon</a>.
-{% endblock feature_project_description %}
-
-{% block project_1_title %}Field Systems{% endblock project_1_title %}
-{% block project_1_description %}
-Deployment tooling, imaging workflows, and reproducible build infrastructure
-for edge compute and autonomy payloads.
-{% endblock project_1_description %}
-
-{% block project_2_title %}Mission Services{% endblock project_2_title %}
-{% block project_2_description %}
-Backend services, APIs, and integrations that fuse telemetry, tasking, and
-operator context into cohesive mission views.
-{% endblock project_2_description %}
+{% block projects %}
+    <!-- Products-->
+    {% set echelon = get_page(path="products/echelon.md") %}
+    {% set breacher = get_page(path="products/breacher.md") %}
+    <section class="projects-section bg-light" id="products">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-12">
+                    <h2 class="text-black">Products</h2>
+                </div>
+            </div>
+            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{{ get_url(path="assets/img/demo-image-01.jpg") }}" alt="Echelon">
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left">
+                                <h4 class="text-white">Echelon</h4>
+                                <p class="mb-0 text-white-50">{{ echelon.content | striptags | truncate(length=220) }}</p>
+                                <div class="mt-3">
+                                    <a class="text-white-50" href="{{ echelon.permalink }}">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{{ get_url(path="assets/img/demo-image-02.jpg") }}" alt="Breacher">
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                    <div class="bg-black text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-right">
+                                <h4 class="text-white">Breacher</h4>
+                                <p class="mb-0 text-white-50">{{ breacher.content | striptags | truncate(length=220) }}</p>
+                                <div class="mt-3">
+                                    <a class="text-white-50" href="{{ breacher.permalink }}">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock projects %}
 
 {% block signup %}{% endblock signup %}

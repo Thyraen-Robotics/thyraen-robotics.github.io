@@ -3,8 +3,8 @@ name = "About"
 path = "#about"
 
 [[item]]
-name = "Projects"
-path = "#projects"
+name = "Products"
+path = "#products"
 
 [[item]]
 name = "Contact"
