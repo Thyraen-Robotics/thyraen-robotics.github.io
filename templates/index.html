@@ -10,19 +10,18 @@
 {% block masthead %}
 {% if section.extra.masthead %}
     {% set hero_tagline = "Autonomy from Objective to Effect." %}
-    <header class="masthead-hero" style="background-image: url('{{ section.extra.masthead }}');">
-        <div class="masthead-hero__overlay"></div>
-        <div class="masthead-hero__content">
-            <div class="masthead-hero__intro">
-                <h1 class="masthead-hero__title">{{ config.title }}</h1>
-                <p class="masthead-hero__subtitle">{{ hero_tagline }}</p>
+    <section class="masthead" style="background-image: url('{{ section.extra.masthead }}');">
+        <div class="masthead-overlay"></div>
+        <div class="masthead-content">
+            <div class="masthead-intro">
+                <h1 class="masthead-title">{{ config.title }}</h1>
+                <p class="masthead-subtitle">{{ hero_tagline }}</p>
             </div>
-            <div class="masthead-hero__philosophy">
-                <h2 class="masthead-hero__philosophy-title"><strong>Autonomy</strong> from <strong>Intent</strong> to <strong>Execution</strong>.</h2>
-                <p class="masthead-hero__philosophy-text">We develop autonomy systems that translate objectives into coordinated action across platforms and missions. Our focus is on mission reasoning, task coordination, and autonomous execution—operating without continuous human supervision, even under degraded communications and real-world operational constraints.</p>
+            <div class="masthead-philosophy">
+                <p class="masthead-philosophy__text">We develop autonomous systems that transform user objectives into coordinated operational effects across heterogeneous platforms and sensors at scale. By synchronizing machines as a cohesive team, our autonomy enables the warfighter to compress decision-to-effect timelines, sustain tempo, and execute operations in degraded and contested environments while remaining heads-up and in the fight—without added cognitive burden.</p>
             </div>
         </div>
-    </header>
+    </section>
 {% else %}
     {{ super() }}
 {% endif %}
