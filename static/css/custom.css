@@ -1,0 +1,62 @@
+.masthead-image {
+    position: relative;
+    min-height: 60vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.5rem;
+}
+
+.masthead-image__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+    z-index: 0;
+}
+
+.masthead-image__content {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+}
+
+.masthead-image__title {
+    color: #f8f9fa;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.masthead-image__subtitle {
+    color: rgba(248, 249, 250, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .masthead-image {
+        min-height: 45vh;
+        padding: 5rem 1.25rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .masthead-image {
+        min-height: 36vh;
+        padding: 4rem 1rem;
+    }
+
+    .masthead-image__title {
+        font-size: 1.75rem;
+    }
+
+    .masthead-image__subtitle {
+        font-size: 1rem;
+    }
+}

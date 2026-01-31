@@ -7,6 +7,22 @@
 {% block masthead_button_url %}#products{% endblock masthead_button_url %}
 {% block masthead_button_label %}Explore Products{% endblock masthead_button_label %}
 
+{% block masthead %}
+{% if section.extra.masthead %}
+    <header class="masthead-image" style="background-image: url('{{ section.extra.masthead }}');">
+        <div class="masthead-image__overlay"></div>
+        <div class="masthead-image__content">
+            <h1 class="masthead-image__title">{{ config.title }}</h1>
+            {% if config.description %}
+            <p class="masthead-image__subtitle">{{ config.description }}</p>
+            {% endif %}
+        </div>
+    </header>
+{% else %}
+    {{ super() }}
+{% endif %}
+{% endblock masthead %}
+
 {% block about_title %}<strong>Autonomy</strong> from <strong>Intent</strong> to <strong>Execution</strong>.{% endblock about_title %}
 {% block about_description %}
 We develop autonomy systems that translate objectives into coordinated action across platforms and missions. Our focus is on mission reasoning, task coordination, and autonomous execution—operating without continuous human supervision, even under degraded communications and real-world operational constraints.
