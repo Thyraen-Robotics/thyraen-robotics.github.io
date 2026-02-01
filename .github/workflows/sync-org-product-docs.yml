@@ -53,6 +53,7 @@ jobs:
                   "[extra]\n"
                   f"hero_title = \"{title}\"\n"
                   f"hero_subtitle = \"{hero_subtitle}\"\n"
+                  "masthead = \"/images/mastheads/org-masthead.png\"\n"
                   "+++\n\n"
               )
               notice = "<!-- synced from Thyraen-Robotics/.github; do not edit here -->\n\n"

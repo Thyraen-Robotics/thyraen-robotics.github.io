@@ -43,15 +43,14 @@
         </div>
     </nav>
 
-    <header class="masthead">
-        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-            <div class="d-flex justify-content-center">
-                <div class="text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">{{ page.extra.hero_title | default(value=page.title) }}</h1>
-                    {% if page.extra.hero_subtitle %}
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">{{ page.extra.hero_subtitle }}</h2>
-                    {% endif %}
-                </div>
+    <header class="masthead"{% if page.extra.masthead %} style="background-image: url('{{ page.extra.masthead }}');"{% endif %}>
+        <div class="masthead-overlay"></div>
+        <div class="masthead-content">
+            <div class="masthead-intro">
+                <h1 class="masthead-title">{{ page.extra.hero_title | default(value=page.title) }}</h1>
+                {% if page.extra.hero_subtitle %}
+                <p class="masthead-subtitle">{{ page.extra.hero_subtitle }}</p>
+                {% endif %}
             </div>
         </div>
     </header>

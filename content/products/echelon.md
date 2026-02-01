@@ -5,6 +5,7 @@ slug = "echelon"
 [extra]
 hero_title = "Echelon"
 hero_subtitle = "Mission autonomy and command for objective-driven execution"
+masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
