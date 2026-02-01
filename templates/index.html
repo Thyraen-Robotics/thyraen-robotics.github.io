@@ -17,9 +17,6 @@
                 <h1 class="masthead-title">{{ config.title }}</h1>
                 <p class="masthead-subtitle">{{ hero_tagline }}</p>
             </div>
-            <div class="masthead-philosophy">
-                <p class="masthead-philosophy__text">We develop autonomous systems that transform user objectives into coordinated operational effects across heterogeneous platforms and sensors at scale. By synchronizing machines as a cohesive team, our autonomy enables the warfighter to compress decision-to-effect timelines, sustain tempo, and execute operations in degraded and contested environments while remaining heads-up and in the fight—without added cognitive burden.</p>
-            </div>
         </div>
     </section>
 {% else %}
@@ -27,7 +24,32 @@
 {% endif %}
 {% endblock masthead %}
 
-{% block about %}{% endblock about %}
+{% block about %}
+    <section class="what-we-build-section" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-5 align-items-start">
+                <div class="col-lg-7">
+                    <h2 class="text-white">What We Build</h2>
+                    <p class="what-we-build-text">We develop autonomous systems that transform user objectives into coordinated operational effects across heterogeneous platforms and sensors at scale. By synchronizing machines as a cohesive team, our autonomy enables the warfighter to compress decision-to-effect timelines, sustain tempo, and execute operations in degraded and contested environments while remaining heads-up and in the fight—without added cognitive burden.</p>
+                </div>
+                <div class="col-lg-5">
+                    <div class="capability-chip">
+                        <h3 class="capability-chip__title">Objective → Effects</h3>
+                        <p class="capability-chip__text">Intent-driven tasking, planning, and execution</p>
+                    </div>
+                    <div class="capability-chip">
+                        <h3 class="capability-chip__title">Degraded-by-design</h3>
+                        <p class="capability-chip__text">Intermittent comms, uncertainty, adversarial constraints</p>
+                    </div>
+                    <div class="capability-chip">
+                        <h3 class="capability-chip__title">Multi-agent coordination</h3>
+                        <p class="capability-chip__text">Synchronization across air, ground, and sensors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock about %}
 
 {% block projects %}
     <!-- Products-->

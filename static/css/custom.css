@@ -79,6 +79,41 @@
     margin-bottom: 0;
 }
 
+.what-we-build-section {
+    background-color: #0e1217;
+    color: #d8dee5;
+    padding: 5.5rem 0 6rem;
+}
+
+.what-we-build-text {
+    color: #aab3bc;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 70ch;
+    margin-bottom: 0;
+}
+
+.capability-chip {
+    background-color: rgba(21, 26, 31, 0.85);
+    border: 1px solid rgba(248, 249, 250, 0.08);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.capability-chip__title {
+    color: #d8dee5;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.capability-chip__text {
+    color: #a2abb4;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
 .products-section-dark {
     background-color: #0b0d10;
     color: #d8dee5;
@@ -227,6 +262,10 @@
 
     .masthead-content {
         gap: 3.5rem;
+    }
+
+    .what-we-build-section {
+        padding: 4.5rem 0 5rem;
     }
 }
 
