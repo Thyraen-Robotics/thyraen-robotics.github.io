@@ -141,6 +141,41 @@
     color: var(--bs-link-color);
 }
 
+#mainNav {
+    background-color: transparent;
+}
+
+#mainNav .navbar-brand,
+#mainNav .nav-link {
+    color: rgba(216, 222, 229, 0.85);
+}
+
+#mainNav .nav-link:hover {
+    color: #e4e8ed;
+}
+
+#mainNav .navbar-toggler {
+    color: #c7ced6;
+    border-color: #c7ced6;
+}
+
+#mainNav.navbar-shrink {
+    background-color: rgba(10, 12, 16, 0.92);
+}
+
+#mainNav.navbar-shrink .navbar-brand,
+#mainNav.navbar-shrink .nav-link {
+    color: #d8dee5;
+}
+
+#mainNav.navbar-shrink .nav-link:hover {
+    color: #e4e8ed;
+}
+
+#mainNav .navbar-collapse {
+    background-color: rgba(10, 12, 16, 0.95);
+}
+
 @media (max-width: 992px) {
     .masthead {
         min-height: 90vh;
