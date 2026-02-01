@@ -171,7 +171,8 @@
 }
 
 #mainNav {
-    background-color: transparent;
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 #mainNav .navbar-brand,
@@ -189,7 +190,13 @@
 }
 
 #mainNav.navbar-shrink {
-    background-color: rgba(10, 12, 16, 0.92);
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#mainNav.navbar-shrink::after {
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 #mainNav.navbar-shrink .navbar-brand,
@@ -202,7 +209,14 @@
 }
 
 #mainNav .navbar-collapse {
-    background-color: rgba(10, 12, 16, 0.95);
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+#mainNav .navbar-collapse.show,
+#mainNav .navbar-collapse.collapsing {
+    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
 @media (max-width: 992px) {
