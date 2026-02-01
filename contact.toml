@@ -5,7 +5,7 @@ icon = "fa-envelope"
 
 [[contact]]
 name = "HQ"
-address = "Remote-first · United States"
+address = """<span class="contact-accent">Sierra Vista · Arizona</span>"""
 icon = "fa-map-marked-alt"
 
 [[social]]

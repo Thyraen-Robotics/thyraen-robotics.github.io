@@ -91,12 +91,13 @@
 }
 
 .products-section-dark .project {
-    background-color: rgba(14, 16, 20, 0.92);
-    border: 1px solid rgba(248, 249, 250, 0.08);
+    background-color: #14181d;
+    border: 1px solid rgba(248, 249, 250, 0.06);
 }
 
 .products-section-dark img.img-fluid {
-    background-color: rgba(18, 20, 24, 0.85);
+    background-color: #151a1f;
+    border: 1px solid rgba(248, 249, 250, 0.04);
 }
 
 .products-section-dark .project-text {
@@ -113,6 +114,31 @@
 
 .products-section-dark a.text-white-50:hover {
     color: #e4e8ed !important;
+}
+
+.contact-section .card {
+    background-color: #12161b;
+    border: 1px solid rgba(248, 249, 250, 0.08);
+}
+
+.contact-section .card-body {
+    background-color: transparent;
+}
+
+.contact-section .card h4 {
+    color: #d8dee5;
+}
+
+.contact-section .card .text-black-50 {
+    color: #a2abb4;
+}
+
+.contact-section .card .text-black-50 a {
+    color: var(--bs-link-color) !important;
+}
+
+.contact-section .card .contact-accent {
+    color: var(--bs-link-color);
 }
 
 @media (max-width: 992px) {
