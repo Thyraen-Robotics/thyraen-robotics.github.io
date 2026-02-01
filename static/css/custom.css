@@ -86,6 +86,35 @@
     padding-bottom: 6rem;
 }
 
+.page-section-dark {
+    background-color: #0b0d10;
+    color: #d8dee5;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.page-section-dark h1,
+.page-section-dark h2,
+.page-section-dark h3,
+.page-section-dark h4,
+.page-section-dark h5,
+.page-section-dark h6 {
+    color: #d8dee5;
+}
+
+.page-section-dark p,
+.page-section-dark li {
+    color: #a2abb4;
+}
+
+.page-section-dark a {
+    color: #c7ced6;
+}
+
+.page-section-dark a:hover {
+    color: #e4e8ed;
+}
+
 .products-section-dark .text-white {
     color: #d8dee5 !important;
 }
