@@ -18,7 +18,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(14, 16, 20, 0.85) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, rgba(10, 12, 16, 0.7) 75%, rgba(10, 12, 16, 0.95) 100%);
     z-index: 1;
     pointer-events: none;
 }
@@ -45,17 +45,17 @@
 }
 
 .masthead-title {
-    color: #f8f9fa;
+    color: #d8dee5;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     margin-bottom: 1rem;
     background: none;
-    -webkit-text-fill-color: #f8f9fa;
+    -webkit-text-fill-color: #d8dee5;
 }
 
 .masthead-subtitle {
-    color: rgba(248, 249, 250, 0.82);
+    color: #b7c0c9;
     font-size: 1.1rem;
     margin-bottom: 0;
 }
@@ -68,15 +68,51 @@
 }
 
 .masthead-philosophy__title {
-    color: #f8f9fa;
+    color: #d8dee5;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 
 .masthead-philosophy__text {
-    color: rgba(248, 249, 250, 0.68);
+    color: #a2abb4;
     font-size: 1rem;
     margin-bottom: 0;
+}
+
+.products-section-dark {
+    background-color: #0b0d10;
+    color: #d8dee5;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+.products-section-dark .text-white {
+    color: #d8dee5 !important;
+}
+
+.products-section-dark .project {
+    background-color: rgba(14, 16, 20, 0.92);
+    border: 1px solid rgba(248, 249, 250, 0.08);
+}
+
+.products-section-dark img.img-fluid {
+    background-color: rgba(18, 20, 24, 0.85);
+}
+
+.products-section-dark .project-text {
+    padding: 2.5rem;
+}
+
+.products-section-dark .text-white-50 {
+    color: #a2abb4 !important;
+}
+
+.products-section-dark a.text-white-50 {
+    color: #c7ced6 !important;
+}
+
+.products-section-dark a.text-white-50:hover {
+    color: #e4e8ed !important;
 }
 
 @media (max-width: 992px) {
