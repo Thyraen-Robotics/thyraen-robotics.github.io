@@ -374,10 +374,18 @@ img { max-width: 100%; height: auto; }
 
 .diagram__flow {
     display: flex;
+    align-items: center;
     justify-content: center;
     gap: 3rem;
-    padding: 0.55rem 0;
+    min-height: 3rem;
+    padding: 0.35rem 0;
     position: relative;
+}
+
+.diagram__leg {
+    align-self: stretch;
+    width: 1px;
+    background-color: var(--border-strong);
 }
 .diagram__flow span {
     font-family: var(--mono);
