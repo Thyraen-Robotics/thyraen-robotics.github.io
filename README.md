@@ -15,6 +15,8 @@ CDNs. Fonts (IBM Plex Sans/Mono) are self-hosted under `static/fonts/`.
 - `templates/section.html` — product listing at `/products/`
 - `static/css/site.css` — the single stylesheet
 - `navigation.toml` / `contact.toml` — nav items and contact data
+- `tools/` — deterministic generators for the hero backgrounds and OG share
+  card (see `tools/README.md`)
 
 ## Product content sync
 
