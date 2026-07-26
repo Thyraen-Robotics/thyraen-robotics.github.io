@@ -4,15 +4,16 @@ slug = "echelon"
 weight = 20
 
 [extra]
+group = "operate"
 hero_title = "Echelon"
 hero_subtitle = "Situational awareness and tasking for heterogeneous autonomous platforms"
 card = "A contract-driven mission C2 control plane: canonical entities and tasks, strict reject-only validation, adapters for vehicles and tactical data feeds, and a 3D operator portal."
+epigraph = "Aligned with the Army’s Next Generation C2 architecture."
+related = ["vanguard", "dissident"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Echelon
 
 **Echelon** is a contract-driven situational awareness and tasking control plane for
 heterogeneous robotic and autonomy platforms, aligned with the U.S. Army's Next

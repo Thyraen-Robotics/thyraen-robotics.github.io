@@ -4,15 +4,16 @@ slug = "tacit"
 weight = 30
 
 [extra]
+group = "connect"
 hero_title = "Tacit"
 hero_subtitle = "A quiet datalink for contested spectrum"
 card = "A low-probability-of-detection radio control plane linking vehicles with authenticated, reliable delivery at the minimum RF footprint the moment allows."
+epigraph = "The link is the first casualty."
+related = ["vanguard"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Tacit
 
 **Tacit** is a quiet ship-to-ship datalink: a low-rate, high-reliability,
 low-probability-of-detection (LPD) radio link that serves as the vehicle-to-vehicle

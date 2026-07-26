@@ -4,15 +4,16 @@ slug = "augur"
 weight = 70
 
 [extra]
+group = "build"
 hero_title = "Augur"
 hero_subtitle = "The doctrine knowledge substrate"
 card = "Decomposes military doctrine into a cited, version-aware knowledge graph and answers doctrine questions with claims resolved to publication and paragraph — or an honest not-found."
+epigraph = "Decompose the doctrine we have. Author the doctrine autonomous warfare needs."
+related = ["vanguard"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Augur
 
 **Augur** is the doctrine knowledge substrate: it decomposes the doctrine we have, so we
 can author the doctrine autonomous warfare needs.

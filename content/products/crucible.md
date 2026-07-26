@@ -4,15 +4,16 @@ slug = "crucible"
 weight = 60
 
 [extra]
+group = "build"
 hero_title = "Crucible"
-hero_subtitle = "Raw material in, refined capability out"
+hero_subtitle = "Provenance-tracked data and model refinery"
 card = "A provenance-tracked data foundry turning raw sources into training-ready datasets and hardware-specific perception models with verifiable lineage."
+epigraph = "Raw material in, refined capability out."
+related = ["vanguard", "simulator"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Crucible
 
 **Crucible** is the Thyraen Robotics data foundry: a provenance-tracked repository and
 toolchain that turns raw source material into training-ready datasets and deployable

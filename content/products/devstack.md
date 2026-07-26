@@ -4,15 +4,16 @@ slug = "devstack"
 weight = 80
 
 [extra]
+group = "build"
 hero_title = "Devstack"
-hero_subtitle = "One dashboard for every stack"
+hero_subtitle = "Shared engineering platform for the Thyraen fleet"
 card = "The shared engineering platform under every Thyraen repository: supervised process stacks, readiness gates, and fleet-wide dependency policy for humans and coding agents alike."
+epigraph = "One dashboard for every stack."
+related = []
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Devstack
 
 **Devstack** is the shared engineering platform underneath every Thyraen Robotics
 repository: one supervisor, one dashboard, one dependency policy across the fleet.

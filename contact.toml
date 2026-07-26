@@ -1,13 +1,3 @@
-[[contact]]
-name = "Email"
-address = """<a href=\"mailto:contact@thyraen.ai\">contact@thyraen.ai</a>"""
-icon = "fa-envelope"
-
-[[contact]]
-name = "HQ"
-address = """<span class="contact-accent">Sierra Vista · Arizona</span>"""
-icon = "fa-map-marked-alt"
-
-[[social]]
-icon = "fa-github"
-url = "https://github.com/Thyraen-Robotics"
+email = "contact@thyraen.ai"
+hq = "Sierra Vista · Arizona"
+github = "https://github.com/Thyraen-Robotics"

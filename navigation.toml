@@ -1,6 +1,10 @@
 [[item]]
-name = "About Us"
-path = "#about"
+name = "Capabilities"
+path = "#capabilities"
+
+[[item]]
+name = "Ecosystem"
+path = "#ecosystem"
 
 [[item]]
 name = "Products"

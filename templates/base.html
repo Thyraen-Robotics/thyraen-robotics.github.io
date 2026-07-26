@@ -1,0 +1,98 @@
+{% set navigation = load_data(path="navigation.toml") %}
+{% set contact = load_data(path="contact.toml") %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% block meta %}
+    <title>{{ config.title }}</title>
+    <meta name="description" content="{{ config.description }}" />
+    <meta property="og:title" content="{{ config.title }}" />
+    <meta property="og:description" content="{{ config.description }}" />
+    <meta property="og:url" content="{{ config.base_url }}" />
+    {% endblock meta %}
+    <meta name="author" content="{{ config.author }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ config.title }}" />
+    <meta property="og:image" content="{{ get_url(path="images/mastheads/org-masthead.png") }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="{{ get_url(path="images/mastheads/org-masthead.png") }}" />
+    <link rel="icon" type="image/x-icon" href="{{ get_url(path="assets/favicon.ico") }}" />
+    <link rel="preload" href="{{ get_url(path="fonts/ibm-plex-sans-latin-400-normal.woff2") }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ get_url(path="fonts/ibm-plex-mono-latin-500-normal.woff2") }}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{ get_url(path="css/site.css") }}" />
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a class="nav__brand" href="{{ get_url(path="/") }}">Thyraen<span> Robotics</span></a>
+            <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav__links" id="nav-links">
+                {% for item in navigation.item %}
+                {% set href = item.path %}
+                {% if item.path is starting_with("#") %}
+                    {% set href = get_url(path="/") ~ item.path %}
+                {% endif %}
+                <li><a href="{{ href | safe }}">{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block hero %}{% endblock hero %}
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col footer__col--brand">
+                    <p class="kicker">Thyraen Robotics</p>
+                    <p class="footer__tag">From Objectives to Effects</p>
+                    <p class="footer__text">Mission-centric autonomy for contested and degraded environments.</p>
+                </div>
+                <div class="footer__col">
+                    <p class="kicker">Contact</p>
+                    <p><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                    <p class="footer__muted">{{ contact.hq }}</p>
+                </div>
+                <div class="footer__col">
+                    <p class="kicker">Find Us</p>
+                    <p><a href="{{ contact.github }}" rel="noopener">
+                        <svg class="icon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                        github.com/Thyraen-Robotics</a></p>
+                </div>
+            </div>
+            <p class="footer__legal">Copyright &copy; {{ config.author }} {{ now() | date(format="%Y") }}</p>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var nav = document.getElementById('nav');
+        var onScroll = function () {
+            nav.classList.toggle('nav--solid', window.scrollY > 24);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+        var toggle = document.getElementById('nav-toggle');
+        var links = document.getElementById('nav-links');
+        toggle.addEventListener('click', function () {
+            var open = links.classList.toggle('nav__links--open');
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        links.addEventListener('click', function (e) {
+            if (e.target.tagName === 'A') {
+                links.classList.remove('nav__links--open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    })();
+    </script>
+</body>
+</html>

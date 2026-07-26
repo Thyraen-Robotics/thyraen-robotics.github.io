@@ -4,15 +4,16 @@ slug = "vanguard"
 weight = 10
 
 [extra]
+group = "operate"
 hero_title = "Vanguard"
 hero_subtitle = "The onboard autonomy and mission-computer runtime for unmanned systems"
 card = "Turns mission intent into bounded local action onboard the platform — mission reasoning, autopilot and payload command, sensing, and operator visibility, from simulation to fielded mission computer."
+epigraph = "An Agent when it must be. An Asset when it should be."
+related = ["echelon", "simulator", "crucible", "tacit"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Vanguard
 
 **Vanguard** is the onboard autonomy and mission-computer runtime for unmanned systems
 within the Thyraen Robotics ecosystem.

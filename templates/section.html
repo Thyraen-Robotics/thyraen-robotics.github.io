@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block meta %}
+<title>{{ section.title }} · {{ config.title }}</title>
+<meta name="description" content="{{ config.description }}" />
+<meta property="og:title" content="{{ section.title }} · {{ config.title }}" />
+<meta property="og:description" content="{{ config.description }}" />
+<meta property="og:url" content="{{ section.permalink }}" />
+{% endblock meta %}
+
+{% block hero %}
+<header class="hero hero--page" style="background-image: url('{{ get_url(path="images/mastheads/org-masthead.png") }}');">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <h1 class="hero__title">{{ section.title }}</h1>
+        <p class="hero__tagline hero__tagline--page">The Thyraen Robotics capability family</p>
+    </div>
+</header>
+{% endblock hero %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="grid">
+            {% for product in section.pages %}
+            <a class="card" href="{{ product.permalink }}">
+                <p class="kicker">{% if product.extra.group == "operate" %}Operate{% elif product.extra.group == "connect" %}Connect{% else %}Build{% endif %}</p>
+                <h3>{{ product.title }}</h3>
+                <p class="card__subtitle">{{ product.extra.hero_subtitle }}</p>
+                <p class="card__text">{{ product.extra.card }}</p>
+                <span class="cardlink">Learn more →</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

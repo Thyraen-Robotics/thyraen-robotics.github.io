@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout site repo
         uses: actions/checkout@v4
-        with:
-          submodules: true
 
       - name: Checkout org meta repo
         uses: actions/checkout@v4
@@ -35,31 +33,48 @@ jobs:
           src_root = Path('org-meta/docs/products')
           dst_root = Path('content/products')
 
+          # slug, title, weight, group, hero_subtitle, card, epigraph, related
           products = [
-              ('vanguard', 'Vanguard', 10,
+              ('vanguard', 'Vanguard', 10, 'operate',
                'The onboard autonomy and mission-computer runtime for unmanned systems',
-               'Turns mission intent into bounded local action onboard the platform — mission reasoning, autopilot and payload command, sensing, and operator visibility, from simulation to fielded mission computer.'),
-              ('echelon', 'Echelon', 20,
+               'Turns mission intent into bounded local action onboard the platform — mission reasoning, autopilot and payload command, sensing, and operator visibility, from simulation to fielded mission computer.',
+               'An Agent when it must be. An Asset when it should be.',
+               ['echelon', 'simulator', 'crucible', 'tacit']),
+              ('echelon', 'Echelon', 20, 'operate',
                'Situational awareness and tasking for heterogeneous autonomous platforms',
-               'A contract-driven mission C2 control plane: canonical entities and tasks, strict reject-only validation, adapters for vehicles and tactical data feeds, and a 3D operator portal.'),
-              ('tacit', 'Tacit', 30,
+               'A contract-driven mission C2 control plane: canonical entities and tasks, strict reject-only validation, adapters for vehicles and tactical data feeds, and a 3D operator portal.',
+               'Aligned with the Army’s Next Generation C2 architecture.',
+               ['vanguard', 'dissident']),
+              ('tacit', 'Tacit', 30, 'connect',
                'A quiet datalink for contested spectrum',
-               'A low-probability-of-detection radio control plane linking vehicles with authenticated, reliable delivery at the minimum RF footprint the moment allows.'),
-              ('dissident', 'Dissident', 40,
+               'A low-probability-of-detection radio control plane linking vehicles with authenticated, reliable delivery at the minimum RF footprint the moment allows.',
+               'The link is the first casualty.',
+               ['vanguard']),
+              ('dissident', 'Dissident', 40, 'connect',
                'Vendor-free drone video, from goggles to the tactical map',
-               'Captures encoded live drone video without vendor apps or firmware modification and republishes it as RTSP and Cursor-on-Target for ATAK and TAKX.'),
-              ('simulator', 'Simulator', 50,
-               'Fly it a thousand times before it ever leaves the rail',
-               'Headless PX4/JSBSim flight truth paired with photoreal Unreal + Cesium sensor simulation, composable scenario registries, and gated validation with flight-log reports.'),
-              ('crucible', 'Crucible', 60,
-               'Raw material in, refined capability out',
-               'A provenance-tracked data foundry turning raw sources into training-ready datasets and hardware-specific perception models with verifiable lineage.'),
-              ('augur', 'Augur', 70,
+               'Captures encoded live drone video without vendor apps or firmware modification and republishes it as RTSP and Cursor-on-Target for ATAK and TAKX.',
+               'From goggles to the tactical map — no vendor software in the loop.',
+               ['echelon']),
+              ('simulator', 'Simulator', 50, 'build',
+               'Photoreal simulation and testbed for the autonomy stack',
+               'Headless PX4/JSBSim flight truth paired with photoreal Unreal + Cesium sensor simulation, composable scenario registries, and gated validation with flight-log reports.',
+               'Fly it a thousand times before it ever leaves the rail.',
+               ['vanguard', 'crucible']),
+              ('crucible', 'Crucible', 60, 'build',
+               'Provenance-tracked data and model refinery',
+               'A provenance-tracked data foundry turning raw sources into training-ready datasets and hardware-specific perception models with verifiable lineage.',
+               'Raw material in, refined capability out.',
+               ['vanguard', 'simulator']),
+              ('augur', 'Augur', 70, 'build',
                'The doctrine knowledge substrate',
-               'Decomposes military doctrine into a cited, version-aware knowledge graph and answers doctrine questions with claims resolved to publication and paragraph — or an honest not-found.'),
-              ('devstack', 'Devstack', 80,
-               'One dashboard for every stack',
-               'The shared engineering platform under every Thyraen repository: supervised process stacks, readiness gates, and fleet-wide dependency policy for humans and coding agents alike.'),
+               'Decomposes military doctrine into a cited, version-aware knowledge graph and answers doctrine questions with claims resolved to publication and paragraph — or an honest not-found.',
+               'Decompose the doctrine we have. Author the doctrine autonomous warfare needs.',
+               ['vanguard']),
+              ('devstack', 'Devstack', 80, 'build',
+               'Shared engineering platform for the Thyraen fleet',
+               'The shared engineering platform under every Thyraen repository: supervised process stacks, readiness gates, and fleet-wide dependency policy for humans and coding agents alike.',
+               'One dashboard for every stack.',
+               []),
           ]
 
           expected = {f'{slug}.md' for slug, *_ in products} | {'_index.md'}
@@ -70,11 +85,19 @@ jobs:
           def toml_escape(value):
               return value.replace('\\', '\\\\').replace('"', '\\"')
 
-          for slug, title, weight, hero_subtitle, card in products:
+          for slug, title, weight, group, hero_subtitle, card, epigraph, related in products:
               src = src_root / f'{slug}.md'
               if not src.exists():
                   raise SystemExit(f'Missing source file: {src}')
               body = src.read_text(encoding='utf-8').rstrip() + '\n'
+              # The page template renders its own hero title; drop the doc's leading H1.
+              lines = body.split('\n')
+              if lines and lines[0].startswith('# '):
+                  lines = lines[1:]
+                  while lines and not lines[0].strip():
+                      lines = lines[1:]
+              body = '\n'.join(lines)
+              related_toml = ', '.join(f'"{r}"' for r in related)
               front_matter = (
                   "+++\n"
                   f"title = \"{toml_escape(title)}\"\n"
@@ -82,9 +105,12 @@ jobs:
                   f"weight = {weight}\n"
                   "\n"
                   "[extra]\n"
+                  f"group = \"{group}\"\n"
                   f"hero_title = \"{toml_escape(title)}\"\n"
                   f"hero_subtitle = \"{toml_escape(hero_subtitle)}\"\n"
                   f"card = \"{toml_escape(card)}\"\n"
+                  f"epigraph = \"{toml_escape(epigraph)}\"\n"
+                  f"related = [{related_toml}]\n"
                   "masthead = \"/images/mastheads/org-masthead.png\"\n"
                   "+++\n\n"
               )

@@ -4,15 +4,16 @@ slug = "simulator"
 weight = 50
 
 [extra]
+group = "build"
 hero_title = "Simulator"
-hero_subtitle = "Fly it a thousand times before it ever leaves the rail"
+hero_subtitle = "Photoreal simulation and testbed for the autonomy stack"
 card = "Headless PX4/JSBSim flight truth paired with photoreal Unreal + Cesium sensor simulation, composable scenario registries, and gated validation with flight-log reports."
+epigraph = "Fly it a thousand times before it ever leaves the rail."
+related = ["vanguard", "crucible"]
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
-
-# Simulator
 
 **Simulator** is the shared simulation and testbed environment behind the Thyraen
 autonomy stack — the place where thousands of controlled, repeatable flights happen

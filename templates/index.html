@@ -1,81 +1,155 @@
-{% extends "zola-grayscale/templates/index.html" %}
+{% extends "base.html" %}
 
-{% block title %}<title>Thyraen Robotics</title>{% endblock title %}
-
-{% block masthead_title %}Thyraen Robotics{% endblock masthead_title %}
-{% block masthead_description %}From Objectives to Effects{% endblock masthead_description %}
-{% block masthead_button_url %}#products{% endblock masthead_button_url %}
-{% block masthead_button_label %}Explore Products{% endblock masthead_button_label %}
-
-{% block masthead %}
-{% if section.extra.masthead %}
-    {% set hero_tagline = "From Objectives to Effects" %}
-    <section class="masthead" style="background-image: url('{{ section.extra.masthead }}');">
-        <div class="masthead-overlay"></div>
-        <div class="masthead-content">
-            <div class="masthead-intro">
-                <h1 class="masthead-title">{{ config.title }}</h1>
-                <p class="masthead-subtitle">{{ hero_tagline }}</p>
-            </div>
+{% block hero %}
+<header class="hero" style="background-image: url('{{ get_url(path="images/mastheads/org-masthead.png") }}');">
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        <p class="kicker kicker--hero">Autonomous Systems · Mission Autonomy</p>
+        <h1 class="hero__title">Thyraen Robotics</h1>
+        <p class="hero__tagline">From Objectives to Effects</p>
+        <p class="hero__lede">Autonomous systems that turn commander's intent into coordinated operational effects — built for denied, degraded, intermittent, and limited environments.</p>
+        <div class="hero__actions">
+            <a class="btn btn--primary" href="#products">Explore the Ecosystem</a>
+            <a class="btn btn--ghost" href="#contact">Get in Contact</a>
         </div>
-    </section>
-{% else %}
-    {{ super() }}
-{% endif %}
-{% endblock masthead %}
+    </div>
+</header>
+{% endblock hero %}
 
-{% block about %}
-    <section class="what-we-build-section" id="about">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-5 align-items-start">
-                <div class="col-lg-7">
-                    <h2 class="text-white">What We Build</h2>
-                    <p class="what-we-build-text">We develop autonomous systems that transform user objectives into coordinated operational effects across heterogeneous platforms and sensors at scale. By synchronizing machines as a cohesive team, our autonomy enables the warfighter to compress decision-to-effect timelines, sustain tempo, and execute operations in degraded and contested environments while remaining heads-up and in the fight—without added cognitive burden.</p>
+{% block content %}
+{% set products = get_section(path="products/_index.md") %}
+
+<section class="section" id="capabilities">
+    <div class="container">
+        <div class="split">
+            <div class="split__main">
+                <p class="kicker">What We Build</p>
+                <h2>Autonomy that serves the mission</h2>
+                <p class="lede">We develop autonomous systems that transform user objectives into coordinated operational effects across heterogeneous platforms and sensors at scale. By synchronizing machines as a cohesive team, our autonomy enables the warfighter to compress decision-to-effect timelines, sustain tempo, and execute operations in degraded and contested environments while remaining heads-up and in the fight — without added cognitive burden.</p>
+            </div>
+            <div class="split__aside">
+                <div class="chip">
+                    <h3>Objective → Effects</h3>
+                    <p>Intent-driven tasking, planning, and execution</p>
                 </div>
-                <div class="col-lg-5">
-                    <div class="capability-chip">
-                        <h3 class="capability-chip__title">Objective → Effects</h3>
-                        <p class="capability-chip__text">Intent-driven tasking, planning, and execution</p>
-                    </div>
-                    <div class="capability-chip">
-                        <h3 class="capability-chip__title">Degraded-by-design</h3>
-                        <p class="capability-chip__text">Intermittent comms, uncertainty, adversarial constraints</p>
-                    </div>
-                    <div class="capability-chip">
-                        <h3 class="capability-chip__title">Multi-agent coordination</h3>
-                        <p class="capability-chip__text">Synchronization across air, ground, and sensors</p>
-                    </div>
+                <div class="chip">
+                    <h3>Degraded-by-design</h3>
+                    <p>Intermittent comms, uncertainty, adversarial constraints</p>
+                </div>
+                <div class="chip">
+                    <h3>Multi-agent coordination</h3>
+                    <p>Synchronization across air, ground, and sensors</p>
                 </div>
             </div>
         </div>
-    </section>
-{% endblock about %}
+    </div>
+</section>
 
-{% block projects %}
-    <!-- Products-->
-    {% set products = get_section(path="products/_index.md") %}
-    <section class="projects-section products-section-dark" id="products">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                <div class="col-12">
-                    <h2 class="text-white">Products</h2>
-                    <p class="products-lead">A tightly integrated family of autonomy capabilities — built on strict, versioned contracts, validated in simulation before hardware, and designed for denied, degraded, intermittent, and limited environments.</p>
-                </div>
+<section class="section section--alt" id="ecosystem">
+    <div class="container">
+        <p class="kicker">How It Fits Together</p>
+        <h2>One ecosystem, strict contracts</h2>
+        <p class="lede">Every product integrates through typed, versioned contracts — platform specifics stay isolated from mission-level autonomy, and capability is proven in simulation before it touches hardware.</p>
+
+        <div class="diagram" role="img" aria-label="Ecosystem diagram: operators command through Echelon; Tacit and Dissident connect Echelon to Vanguard onboard the platform; Simulator, Crucible, Augur, and Devstack form the foundation.">
+            <div class="diagram__row diagram__row--edge">
+                <div class="diagram__label">Operators &amp; External Mission Systems</div>
             </div>
-            <div class="row gx-4 gx-lg-5">
-                {% for product in products.pages %}
-                <div class="col-md-6 col-xl-3 d-flex mb-4">
-                    <div class="product-card">
-                        <h4 class="product-card__title">{{ product.title }}</h4>
-                        <p class="product-card__subtitle">{{ product.extra.hero_subtitle }}</p>
-                        <p class="product-card__text">{{ product.extra.card }}</p>
-                        <a class="product-card__link" href="{{ product.permalink }}">Learn more →</a>
-                    </div>
-                </div>
-                {% endfor %}
+            <div class="diagram__flow"><span>intent ↓</span><span>awareness ↑</span></div>
+            <a class="diagram__node diagram__node--wide" href="{{ get_url(path="@/products/echelon.md") }}">
+                <span class="diagram__name">Echelon</span>
+                <span class="diagram__role">Mission C2 &amp; situational awareness</span>
+            </a>
+            <div class="diagram__flow"><span>tasking ↓</span><span>state · video ↑</span></div>
+            <div class="diagram__row diagram__row--pair">
+                <a class="diagram__node" href="{{ get_url(path="@/products/tacit.md") }}">
+                    <span class="diagram__name">Tacit</span>
+                    <span class="diagram__role">Quiet datalink</span>
+                </a>
+                <a class="diagram__node" href="{{ get_url(path="@/products/dissident.md") }}">
+                    <span class="diagram__name">Dissident</span>
+                    <span class="diagram__role">Video ingest</span>
+                </a>
+            </div>
+            <div class="diagram__flow"><span>contested spectrum</span></div>
+            <a class="diagram__node diagram__node--wide" href="{{ get_url(path="@/products/vanguard.md") }}">
+                <span class="diagram__name">Vanguard</span>
+                <span class="diagram__role">Onboard autonomy runtime — on the platform</span>
+            </a>
+            <div class="diagram__flow"><span>proven · fed · grounded · built</span></div>
+            <div class="diagram__row diagram__row--foundation">
+                <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/simulator.md") }}">
+                    <span class="diagram__name">Simulator</span>
+                    <span class="diagram__role">Proves behavior</span>
+                </a>
+                <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/crucible.md") }}">
+                    <span class="diagram__name">Crucible</span>
+                    <span class="diagram__role">Refines data</span>
+                </a>
+                <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/augur.md") }}">
+                    <span class="diagram__name">Augur</span>
+                    <span class="diagram__role">Grounds doctrine</span>
+                </a>
+                <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/devstack.md") }}">
+                    <span class="diagram__name">Devstack</span>
+                    <span class="diagram__role">Unifies engineering</span>
+                </a>
             </div>
         </div>
-    </section>
-{% endblock projects %}
+    </div>
+</section>
 
-{% block signup %}{% endblock signup %}
+<section class="section" id="products">
+    <div class="container">
+        <p class="kicker">Products</p>
+        <h2>The capability family</h2>
+        <p class="lede">A tightly integrated family of autonomy capabilities — validated in simulation before hardware and designed for the environments where autonomy matters most.</p>
+
+        <div class="featured">
+            {% for product in products.pages %}{% if product.extra.group == "operate" %}
+            <a class="featured__card" href="{{ product.permalink }}">
+                <p class="kicker">Operate</p>
+                <h3>{{ product.title }}</h3>
+                <p class="featured__subtitle">{{ product.extra.hero_subtitle }}</p>
+                <p class="featured__epigraph">“{{ product.extra.epigraph }}”</p>
+                <p class="featured__text">{{ product.extra.card }}</p>
+                <span class="cardlink">Learn more →</span>
+            </a>
+            {% endif %}{% endfor %}
+        </div>
+
+        <div class="grid">
+            {% for product in products.pages %}{% if product.extra.group != "operate" %}
+            <a class="card" href="{{ product.permalink }}">
+                <p class="kicker">{% if product.extra.group == "connect" %}Connect{% else %}Build{% endif %}</p>
+                <h3>{{ product.title }}</h3>
+                <p class="card__subtitle">{{ product.extra.hero_subtitle }}</p>
+                <p class="card__text">{{ product.extra.card }}</p>
+                <span class="cardlink">Learn more →</span>
+            </a>
+            {% endif %}{% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section section--alt" id="engagement">
+    <div class="container">
+        <div class="split">
+            <div class="split__main">
+                <p class="kicker">Working With Thyraen</p>
+                <h2>Built for the Department of War and allied defense organizations</h2>
+                <p class="lede">We build for stakeholders who need autonomy transitioned from experimentation to operational reality — and we hold ourselves to honest capability claims, in code and in documentation.</p>
+                <a class="btn btn--primary" href="mailto:contact@thyraen.ai">Start the Conversation</a>
+            </div>
+            <div class="split__aside">
+                <ul class="checklist">
+                    <li><strong>Architecture alignment</strong> — domain model aligned with the Army's Next Generation C2 (NGC2) architecture</li>
+                    <li><strong>Interoperability first</strong> — TAK, Cursor-on-Target, ADS-B, AIS, MAVLink/PX4, RTSP/H.264, WebRTC</li>
+                    <li><strong>Closed-network ready</strong> — airgap-capable deployments, native binaries, on-premises inference</li>
+                    <li><strong>Simulation-validated</strong> — thousands of repeatable flights with gated validation evidence before hardware</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

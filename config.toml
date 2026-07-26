@@ -6,8 +6,6 @@ author = "Thyraen Robotics"
 compile_sass = false
 build_search_index = false
 
-theme = "zola-grayscale"
-
 [markdown]
 
 [markdown.highlighting]

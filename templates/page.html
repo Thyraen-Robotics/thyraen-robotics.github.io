@@ -1,74 +1,81 @@
-{% import "macros/head.html" as head %}
-{% import "macros/analytics.html" as analytics %}
+{% extends "base.html" %}
 
-{% set navigation = load_data(path="navigation.toml") %}
+{% block meta %}
+<title>{{ page.title }} · {{ config.title }}</title>
+<meta name="description" content="{{ page.extra.card | default(value=config.description) }}" />
+<meta property="og:title" content="{{ page.title }} · {{ config.title }}" />
+<meta property="og:description" content="{{ page.extra.card | default(value=config.description) }}" />
+<meta property="og:url" content="{{ page.permalink }}" />
+{% endblock meta %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{ analytics::google_analytics() }}
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="{{ config.description }}" />
-    <meta name="author" content="{{ config.author }}" />
-    {{ head::title() }}
-    <link rel="icon" type="image/x-icon" href="{{ get_url(path="assets/favicon.ico") }}" />
-    <script src="https://use.fontawesome.com/releases/v6.7.1/js/all.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
-    <link href="{{ get_url(path="css/styles.css") }}" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="{{ get_url(path="css/custom.css") }}">
-</head>
-<body id="page-top">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="{{ get_url(path="/") }}#page-top">{{ config.title }}</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    {% for item in navigation.item %}
-                    {% set href = item.path %}
-                    {% if item.path is starting_with("#") %}
-                        {% set href = get_url(path="/") ~ item.path %}
-                    {% endif %}
-                    <li class="nav-itempdown">
-                        <a class="nav-link" href="{{ href | safe }}">{{ item.name }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
+{% block hero %}
+<header class="hero hero--page"{% if page.extra.masthead %} style="background-image: url('{{ page.extra.masthead }}');"{% endif %}>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+        {% if page.extra.group %}
+        <p class="kicker kicker--hero">{% if page.extra.group == "operate" %}Operate{% elif page.extra.group == "connect" %}Connect{% else %}Build{% endif %}</p>
+        {% endif %}
+        <h1 class="hero__title">{{ page.extra.hero_title | default(value=page.title) }}</h1>
+        {% if page.extra.hero_subtitle %}
+        <p class="hero__tagline hero__tagline--page">{{ page.extra.hero_subtitle }}</p>
+        {% endif %}
+    </div>
+</header>
+{% endblock hero %}
+
+{% block content %}
+<section class="section section--page">
+    <div class="container container--narrow">
+        <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="{{ get_url(path="/") }}">Home</a>
+            <span>/</span>
+            <a href="{{ get_url(path="/") }}#products">Products</a>
+            <span>/</span>
+            <span aria-current="page">{{ page.title }}</span>
+        </nav>
+
+        <article class="prose">
+            {{ page.content | safe }}
+        </article>
+
+        {% if page.extra.related %}
+        <aside class="related">
+            <p class="kicker">Works With</p>
+            <div class="related__chips">
+                {% for slug in page.extra.related %}
+                {% set rel = get_page(path="products/" ~ slug ~ ".md") %}
+                <a class="related__chip" href="{{ rel.permalink }}">
+                    <strong>{{ rel.title }}</strong>
+                    <span>{{ rel.extra.hero_subtitle }}</span>
+                </a>
+                {% endfor %}
             </div>
-        </div>
-    </nav>
+        </aside>
+        {% endif %}
 
-    <header class="masthead"{% if page.extra.masthead %} style="background-image: url('{{ page.extra.masthead }}');"{% endif %}>
-        <div class="masthead-overlay"></div>
-        <div class="masthead-content">
-            <div class="masthead-intro">
-                <h1 class="masthead-title">{{ page.extra.hero_title | default(value=page.title) }}</h1>
-                {% if page.extra.hero_subtitle %}
-                <p class="masthead-subtitle">{{ page.extra.hero_subtitle }}</p>
-                {% endif %}
-            </div>
-        </div>
-    </header>
-
-    <section class="projects-section page-section-dark" id="content">
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-lg-10">
-                    {{ page.content | safe }}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer bg-black small text-center text-white-50">
-        <div class="container px-4 px-lg-5">Copyright &copy; {{ config.author }} {{ now() | date(format="%Y") }}</div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+        {% set section = get_section(path="products/_index.md") %}
+        {% set_global prev = false %}
+        {% set_global next = false %}
+        {% set_global found = false %}
+        {% for p in section.pages %}
+            {% if found and not next %}{% set_global next = p %}{% endif %}
+            {% if p.permalink == page.permalink %}{% set_global found = true %}{% endif %}
+            {% if not found %}{% set_global prev = p %}{% endif %}
+        {% endfor %}
+        <nav class="pagenav" aria-label="Product navigation">
+            {% if prev %}
+            <a class="pagenav__link pagenav__link--prev" href="{{ prev.permalink }}">
+                <span class="kicker">← Previous</span>
+                <strong>{{ prev.title }}</strong>
+            </a>
+            {% else %}<span></span>{% endif %}
+            {% if next %}
+            <a class="pagenav__link pagenav__link--next" href="{{ next.permalink }}">
+                <span class="kicker">Next →</span>
+                <strong>{{ next.title }}</strong>
+            </a>
+            {% endif %}
+        </nav>
+    </div>
+</section>
+{% endblock content %}
