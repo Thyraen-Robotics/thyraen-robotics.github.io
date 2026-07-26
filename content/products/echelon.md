@@ -10,7 +10,7 @@ hero_subtitle = "Situational awareness and tasking for heterogeneous autonomous 
 card = "A contract-driven mission C2 control plane: canonical entities and tasks, strict reject-only validation, adapters for vehicles and tactical data feeds, and a 3D operator portal."
 epigraph = "Aligned with the Army’s Next Generation C2 architecture."
 related = ["vanguard", "dissident"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-operate.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

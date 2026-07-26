@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block hero %}
-<header class="hero" style="background-image: url('{{ get_url(path="images/mastheads/org-masthead.png") }}');">
+<header class="hero" style="background-image: url('{{ get_url(path="images/backgrounds/bg-home.svg") }}');">
     <div class="hero__overlay"></div>
     <div class="hero__content">
         <p class="kicker kicker--hero">Autonomous Systems · Mission Autonomy</p>
@@ -51,48 +51,42 @@
         <h2>One ecosystem, strict contracts</h2>
         <p class="lede">Every product integrates through typed, versioned contracts — platform specifics stay isolated from mission-level autonomy, and capability is proven in simulation before it touches hardware.</p>
 
-        <div class="diagram" role="img" aria-label="Ecosystem diagram: operators command through Echelon; Tacit and Dissident connect Echelon to Vanguard onboard the platform; Simulator, Crucible, Augur, and Devstack form the foundation.">
+        <div class="diagram" role="img" aria-label="Ecosystem diagram: operators command through Echelon, the mission C2 and common operating picture; Tacit links Echelon to Vanguard through contested spectrum; Vanguard executes onboard the platform; Simulator, Crucible, Augur, and Devstack form the foundation.">
             <div class="diagram__row diagram__row--edge">
                 <div class="diagram__label">Operators &amp; External Mission Systems</div>
             </div>
             <div class="diagram__flow"><span>intent ↓</span><span>awareness ↑</span></div>
             <a class="diagram__node diagram__node--wide" href="{{ get_url(path="@/products/echelon.md") }}">
                 <span class="diagram__name">Echelon</span>
-                <span class="diagram__role">Mission C2 &amp; situational awareness</span>
+                <span class="diagram__role">Mission C2 &amp; Common Operating Picture</span>
             </a>
-            <div class="diagram__flow"><span>tasking ↓</span><span>state · video ↑</span></div>
-            <div class="diagram__row diagram__row--pair">
-                <a class="diagram__node" href="{{ get_url(path="@/products/tacit.md") }}">
-                    <span class="diagram__name">Tacit</span>
-                    <span class="diagram__role">Quiet datalink</span>
-                </a>
-                <a class="diagram__node" href="{{ get_url(path="@/products/dissident.md") }}">
-                    <span class="diagram__name">Dissident</span>
-                    <span class="diagram__role">Video ingest</span>
-                </a>
-            </div>
+            <div class="diagram__flow"><span>tasking ↓</span><span>state ↑</span></div>
+            <a class="diagram__node diagram__node--narrow" href="{{ get_url(path="@/products/tacit.md") }}">
+                <span class="diagram__name">Tacit</span>
+                <span class="diagram__role">Resilient Datalink</span>
+            </a>
             <div class="diagram__flow"><span>contested spectrum</span></div>
             <a class="diagram__node diagram__node--wide" href="{{ get_url(path="@/products/vanguard.md") }}">
                 <span class="diagram__name">Vanguard</span>
-                <span class="diagram__role">Onboard autonomy runtime — on the platform</span>
+                <span class="diagram__role">Onboard Platform and Mission Autonomy</span>
             </a>
             <div class="diagram__flow"><span>proven · fed · grounded · built</span></div>
             <div class="diagram__row diagram__row--foundation">
                 <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/simulator.md") }}">
                     <span class="diagram__name">Simulator</span>
-                    <span class="diagram__role">Proves behavior</span>
+                    <span class="diagram__role">Proves Behavior</span>
                 </a>
                 <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/crucible.md") }}">
                     <span class="diagram__name">Crucible</span>
-                    <span class="diagram__role">Refines data</span>
+                    <span class="diagram__role">Refines Data</span>
                 </a>
                 <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/augur.md") }}">
                     <span class="diagram__name">Augur</span>
-                    <span class="diagram__role">Grounds doctrine</span>
+                    <span class="diagram__role">Grounds Doctrine</span>
                 </a>
                 <a class="diagram__node diagram__node--small" href="{{ get_url(path="@/products/devstack.md") }}">
                     <span class="diagram__name">Devstack</span>
-                    <span class="diagram__role">Unifies engineering</span>
+                    <span class="diagram__role">Unifies Engineering</span>
                 </a>
             </div>
         </div>

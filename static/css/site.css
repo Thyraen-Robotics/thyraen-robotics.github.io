@@ -245,7 +245,8 @@ img { max-width: 100%; height: auto; }
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(180deg, rgba(6, 8, 12, 0.55) 0%, rgba(6, 8, 12, 0.35) 45%, rgba(10, 13, 17, 0.97) 100%);
+        radial-gradient(ellipse 70% 55% at 50% 45%, rgba(6, 8, 12, 0.45) 0%, rgba(6, 8, 12, 0) 70%),
+        linear-gradient(180deg, rgba(6, 8, 12, 0.2) 0%, rgba(6, 8, 12, 0.05) 45%, rgba(10, 13, 17, 0.95) 100%);
 }
 
 .hero__content {
@@ -350,8 +351,12 @@ img { max-width: 100%; height: auto; }
 }
 
 .diagram__row { display: grid; gap: 1rem; }
-.diagram__row--pair { grid-template-columns: 1fr 1fr; }
 .diagram__row--foundation { grid-template-columns: repeat(4, 1fr); }
+
+.diagram__node--narrow {
+    width: min(420px, 100%);
+    margin: 0 auto;
+}
 
 .diagram__row--edge {
     text-align: center;

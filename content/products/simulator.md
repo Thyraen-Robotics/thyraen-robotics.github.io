@@ -10,7 +10,7 @@ hero_subtitle = "Photoreal simulation and testbed for the autonomy stack"
 card = "Headless PX4/JSBSim flight truth paired with photoreal Unreal + Cesium sensor simulation, composable scenario registries, and gated validation with flight-log reports."
 epigraph = "Fly it a thousand times before it ever leaves the rail."
 related = ["vanguard", "crucible"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-build.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

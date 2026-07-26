@@ -10,7 +10,7 @@ hero_subtitle = "The onboard autonomy and mission-computer runtime for unmanned 
 card = "Turns mission intent into bounded local action onboard the platform — mission reasoning, autopilot and payload command, sensing, and operator visibility, from simulation to fielded mission computer."
 epigraph = "An Agent when it must be. An Asset when it should be."
 related = ["echelon", "simulator", "crucible", "tacit"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-operate.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

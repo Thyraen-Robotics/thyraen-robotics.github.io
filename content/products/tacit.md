@@ -10,7 +10,7 @@ hero_subtitle = "A quiet datalink for contested spectrum"
 card = "A low-probability-of-detection radio control plane linking vehicles with authenticated, reliable delivery at the minimum RF footprint the moment allows."
 epigraph = "The link is the first casualty."
 related = ["vanguard"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-connect.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

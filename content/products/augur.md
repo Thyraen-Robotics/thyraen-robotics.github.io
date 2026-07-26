@@ -10,7 +10,7 @@ hero_subtitle = "The doctrine knowledge substrate"
 card = "Decomposes military doctrine into a cited, version-aware knowledge graph and answers doctrine questions with claims resolved to publication and paragraph — or an honest not-found."
 epigraph = "Decompose the doctrine we have. Author the doctrine autonomous warfare needs."
 related = ["vanguard"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-build.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

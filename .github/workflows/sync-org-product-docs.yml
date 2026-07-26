@@ -111,7 +111,7 @@ jobs:
                   f"card = \"{toml_escape(card)}\"\n"
                   f"epigraph = \"{toml_escape(epigraph)}\"\n"
                   f"related = [{related_toml}]\n"
-                  "masthead = \"/images/mastheads/org-masthead.png\"\n"
+                  f"masthead = \"/images/backgrounds/bg-{group}.svg\"\n"
                   "+++\n\n"
               )
               notice = "<!-- synced from Thyraen-Robotics/.github; do not edit here -->\n\n"

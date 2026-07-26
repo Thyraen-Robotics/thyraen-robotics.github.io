@@ -10,7 +10,7 @@ hero_subtitle = "Vendor-free drone video, from goggles to the tactical map"
 card = "Captures encoded live drone video without vendor apps or firmware modification and republishes it as RTSP and Cursor-on-Target for ATAK and TAKX."
 epigraph = "From goggles to the tactical map — no vendor software in the loop."
 related = ["echelon"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-connect.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

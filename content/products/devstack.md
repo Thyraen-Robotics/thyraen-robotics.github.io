@@ -10,7 +10,7 @@ hero_subtitle = "Shared engineering platform for the Thyraen fleet"
 card = "The shared engineering platform under every Thyraen repository: supervised process stacks, readiness gates, and fleet-wide dependency policy for humans and coding agents alike."
 epigraph = "One dashboard for every stack."
 related = []
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-build.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->

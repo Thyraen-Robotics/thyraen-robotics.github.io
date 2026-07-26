@@ -10,7 +10,7 @@ hero_subtitle = "Provenance-tracked data and model refinery"
 card = "A provenance-tracked data foundry turning raw sources into training-ready datasets and hardware-specific perception models with verifiable lineage."
 epigraph = "Raw material in, refined capability out."
 related = ["vanguard", "simulator"]
-masthead = "/images/mastheads/org-masthead.png"
+masthead = "/images/backgrounds/bg-build.svg"
 +++
 
 <!-- synced from Thyraen-Robotics/.github; do not edit here -->
