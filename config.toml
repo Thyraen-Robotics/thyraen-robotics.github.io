@@ -1,6 +1,6 @@
 base_url = "https://thyraen-robotics.github.io/"
 title = "Thyraen Robotics"
-description = "Mission-ready autonomous systems and robotics platforms."
+description = "Mission-centric autonomy for contested and degraded environments. Autonomous systems that turn commander's intent into coordinated operational effects."
 author = "Thyraen Robotics"
 
 compile_sass = false

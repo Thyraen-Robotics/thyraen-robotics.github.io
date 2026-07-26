@@ -1,10 +1,12 @@
 +++
 title = "Echelon"
 slug = "echelon"
+weight = 20
 
 [extra]
 hero_title = "Echelon"
-hero_subtitle = "Mission autonomy and command for objective-driven execution"
+hero_subtitle = "Situational awareness and tasking for heterogeneous autonomous platforms"
+card = "A contract-driven mission C2 control plane: canonical entities and tasks, strict reject-only validation, adapters for vehicles and tactical data feeds, and a 3D operator portal."
 masthead = "/images/mastheads/org-masthead.png"
 +++
 
@@ -12,103 +14,76 @@ masthead = "/images/mastheads/org-masthead.png"
 
 # Echelon
 
-**Echelon** is the mission autonomy and mission command-and-control (C2) capability
-within the Thyraen Robotics ecosystem.
+**Echelon** is a contract-driven situational awareness and tasking control plane for
+heterogeneous robotic and autonomy platforms, aligned with the U.S. Army's Next
+Generation C2 (NGC2) architecture.
 
-Echelon provides the coordination, tasking, and operational coherence required for
-autonomous agents to execute missions under human intent, across both centralized
-and decentralized configurations.
+Echelon ingests operational data from external mission runtimes, validates it against a
+canonical domain model, maintains a coherent operational picture, and routes task
+assignments to the runtimes that execute them.
 
-It is not a platform or vehicle system.
-Echelon is a **mission-level autonomy capability** that may operate onboard agents,
-across distributed nodes, or as a coordinating mission service.
-
----
-
-## Role in the Thyraen Ecosystem
-
-Echelon serves as the **mission reasoning and coordination layer** that binds
-autonomous activity into coherent mission execution.
-
-It is responsible for:
-- Representing shared mission state
-- Translating intent into executable tasks
-- Coordinating activity across agents and systems
-- Providing mission-level visibility and control to operators
-
-Other Thyraen capabilities, such as Breacher, are tasked and coordinated through
-Echelon rather than operating independently.
+Rather than centralizing autonomy, Echelon treats autonomy systems as external runtimes
+and supplies the layer they lack: state validation, task routing, situational awareness,
+and hard integration boundaries between dissimilar systems.
 
 ---
 
-## What Echelon Does
+## Canonical Entities and Tasks
 
-Echelon focuses on four core functions:
+Everything Echelon knows is expressed as two canonical objects:
 
-- **Mission state representation**  
-  Maintaining a shared representation of entities, tasks, objectives, and constraints
-  across participating agents and systems.
+- **Entities** — observed world state
+- **Tasks** — intent and execution state, with an authoritative lifecycle from
+  assignment through acknowledgment, execution, and terminal status
 
-- **Tasking and coordination**  
-  Creating, assigning, tracking, and managing mission tasks across single platforms
-  and coordinated teams.
-
-- **Mission adaptation**  
-  Supporting task reallocation and execution adjustment in response to changing
-  conditions, within defined constraints.
-
-- **Mission C2 interaction**  
-  Providing operators with situational awareness, task visibility, and mechanisms
-  for intervention without micromanagement.
-
-These functions operate at the mission layer rather than at the level of vehicle control.
+Validation is strictly **reject-only**: invalid input is refused, never repaired,
+normalized, or inferred. Undocumented behavior is undefined by design.
 
 ---
 
-## Autonomy and Deployment
+## Integration Through Adapters
 
-Echelon supports multiple operational configurations depending on mission needs and
-operating conditions.
+External systems reach Echelon only through adapters, which enforce the contract
+boundary:
 
-It may:
-- Execute onboard autonomous agents as a headless mission autonomy service
-- Operate across multiple distributed nodes coordinating peer activity
-- Function as a centralized mission coordination node when appropriate
+- **Vanguard** vehicles publishing canonical entity, task, and media state
+- **TAK** streaming Cursor-on-Target over TCP, UDP, or verified TLS
+- **ADS-B** aircraft tracking
+- **AIS** maritime traffic
 
-These configurations may coexist within a single mission and do not require a fixed
-deployment topology.
+An SDK provides scaffolding and canonical types for building new adapters against the
+same contract.
 
 ---
 
-## Human Interaction
+## Operator Portal
 
-Echelon integrates humans as **mission authorities**.
+The Echelon portal is a presentation-only 3D map workspace:
 
-Human operators:
-- Define mission intent and objectives
-- Establish constraints, priorities, and policies
-- Supervise mission execution
-- Intervene or approve actions as required
+- Cesium-based globe with military symbology
+- Capability-gated tasking — task UI appears only for entities that truthfully publish
+  a task catalog
+- Task queue and detail views
+- Live video from platform sensors, resolved deterministically and delivered to the
+  browser over WebRTC
 
-Echelon focuses on execution and coordination within those bounds, not on replacing
-human command authority.
+The UI never owns or mutates system truth.
+
+---
+
+## Deployment Topologies
+
+Echelon runs centrally on a control workstation, onboard a vehicle, or fully distributed
+across peer nodes that exchange canonical Entities and Tasks — with each node enforcing
+contracts independently.
 
 ---
 
 ## What Echelon Is Not
 
 Echelon is **not**:
-- A flight controller or platform autonomy stack
-- A vehicle-specific mission planner
+
+- A flight controller or platform autonomy stack — that is [Vanguard](/products/vanguard/)
+- A mission planner or autonomy reasoning engine
 - A requirement for centralized command
 - A replacement for human decision-making
-
-It is a mission-level autonomy and C2 capability designed to integrate with platform
-autonomy systems and human operators.
-
----
-
-## Relationship to Detailed Documentation
-
-Operational concepts, deployment considerations, and implementation details are
-maintained with the Echelon product documentation.
